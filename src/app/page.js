@@ -1,7 +1,5 @@
-import LoginForm from "../components/LoginForm"
-import './globals.css'
+import LoginForm from "../components/LoginForm";
+import "./globals.css";
 export default function Home() {
-  return (
-      <LoginForm></LoginForm>
-  )
+  return <LoginForm></LoginForm>;
 }

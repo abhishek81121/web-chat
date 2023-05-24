@@ -1,133 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap");
 
-button{
-background-image: linear-gradient(45deg,#00DBDE,#FC00FF,#00ECBC, #007ADF);
-background-size: 400%;
-    animation: bg-animation 80s infinite;
-    text-align: center;
-   box-sizing: inherit;
+button {
+  background-image: linear-gradient(45deg, #00dbde, #fc00ff, #00ecbc, #007adf);
+  background-size: 400%;
+  animation: bg-animation 80s infinite;
+  text-align: center;
+  box-sizing: inherit;
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: Phantomsans, sans-serif;
   font-size: 20px;
   line-height: 1em;
-  width : auto;
+  width: auto;
   height: auto;
   padding: 19px 24px;
-
 }
 
 button:active,
 button:hover {
   outline: 0;
 }
-label{
-	color:#fff;
-    font-size: 32px;
-    font-family: "Noto Sans",sans-serif;
-    box-sizing: inherit;
+label {
+  color: #fff;
+  font-size: 32px;
+  font-family: "Noto Sans", sans-serif;
+  box-sizing: inherit;
 }
-input{
-    border:0;
-    border-bottom:1px solid #555;  
-    background:transparent;
-    box-sizing: inherit;
-    padding:8px 0 5px 0;
-    font-size:32px;
-    color:#fff;
-}
-
-input:hover{ 
-    border:none;	
-    outline:none;
-    border-bottom:1px solid #e74c3c;	
-}
-.formbody{
-    height:auto;
-    width: auto;
-    background-color: rgba(248, 245, 245, 0.4);
-    backdrop-filter: blur(5px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding : 3% 10%;
-}
-.image{
-    box-sizing: inherit;
-    color: transparent;
-    margin-top: 2%;
-    margin-bottom: 5%;
-}
-.input_container{
-	position:relative;
-	margin-bottom:25px;
-}
-.inputname{
-    height: 5%;
-    width:110%;
-    border-radius: 0.5rem;
-    margin-bottom: 5%;
-    font-family: "Noto Sans",sans-serif;
-}
-.inputpass{
-    height: 10%;
-    width:110%;
-    border-radius: 0.5rem;
-    margin-bottom: 5%;
-    font-family: "Noto Sans",sans-serif;
-}
-.maindiv{
-    height:100vh ;
-    width: 100vw;
-    display: flex;
-    background-image: linear-gradient(45deg,#00DBDE,#FC00FF,#00ECBC, #007ADF);
-    background-size: 400%;
-    justify-content: center;
-    align-items: center;
-    animation: bg-animation 80s infinite;
-}
-@keyframes bg-animation{
-    0%{
-         background-position: left;
-    }
-    50%{
-        background-position: right;
-    }
-    100%{
-        background-position: left;
-    }
-}
-@media screen  and (max-width : 768px)
-{
-   
-    input{
-        font-size: 1em;
-        color: antiquewhite;
-        font-weight: 900;
-    }
-    label{
-        font-size : 1.5em;
-        font-weight: 900;
-    }
-    button {
-        font-size: 24px;
-        width: 40%;
-        margin-bottom: 10px;
-    }
-    .inputname{
-        width: 80%;
-      }
-    .inputpass{
-        width: 80%;
-      }
-    .formbody{
-        width: 80%;
-       padding: 0%;
-    }
-    
+input {
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  box-sizing: inherit;
+  padding: 8px 0 5px 0;
+  font-size: 32px;
+  color: #fff;
 }
 
+input:hover {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e74c3c;
+}
+.formbody {
+  height: auto;
+  width: auto;
+  background-color: rgba(248, 245, 245, 0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3% 10%;
+}
+.image {
+  box-sizing: inherit;
+  color: transparent;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+.input_container {
+  position: relative;
+  margin-bottom: 25px;
+}
+.inputname {
+  height: 5%;
+  width: 110%;
+  border-radius: 0.5rem;
+  margin-bottom: 5%;
+  font-family: "Noto Sans", sans-serif;
+}
+.inputpass {
+  height: 10%;
+  width: 110%;
+  border-radius: 0.5rem;
+  margin-bottom: 5%;
+  font-family: "Noto Sans", sans-serif;
+}
+.maindiv {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-image: linear-gradient(45deg, #00dbde, #fc00ff, #00ecbc, #007adf);
+  background-size: 400%;
+  justify-content: center;
+  align-items: center;
+  animation: bg-animation 80s infinite;
+}
+.signup {
+  position: absolute;
+  right: 0px;
+  bottom: 5px;
+}
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+@media screen and (max-width: 768px) {
+  input {
+    font-size: 1em;
+    color: antiquewhite;
+    font-weight: 900;
+  }
+  label {
+    font-size: 1.5em;
+    font-weight: 900;
+  }
+  button {
+    font-size: 24px;
+    width: 40%;
+    margin-bottom: 10px;
+  }
+  .inputname {
+    width: 80%;
+  }
+  .inputpass {
+    width: 80%;
+  }
+  .formbody {
+    width: 80%;
+    padding: 0%;
+  }
+  .signup {
+    position: relative;
+    right: 0px;
+    bottom: 5px;
+  }
+}

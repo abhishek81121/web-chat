@@ -1,16 +1,19 @@
-.body{
-    height: fit-content;
-    width : 30vw;
-    background-color: red;
-   
+.body {
+  height: fit-content;
+  width: 30vw;
+  background-color: red;
 }
-.heading{
-    margin-top: 0px;
-    padding: 0px;
-    margin-left: auto;
-    height: fit-content;
-    color: #5eb68b; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0;
+.heading {
+  margin-top: 0px;
+  padding: 0px;
+  margin-left: auto;
+  height: fit-content;
+  color: #5eb68b;
+  font-family: "Trocchi", serif;
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 0;
 }
-@media screen and (max-width: 768px){
-    
+@media screen and (max-width: 768px) {
 }
