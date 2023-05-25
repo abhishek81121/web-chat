@@ -4,5 +4,5 @@ const Register = new mongoose.Schema({
   username: String,
   password: String,
 });
-
-export { Register };
+const user_cred = mongoose.model("USER_INFO", Register);
+export { user_cred };
