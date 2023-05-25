@@ -5,27 +5,29 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-async function verify(usr, pass) {
-  try {
-    const response = await axios.post("/api/signup", {
-      name: usr,
-      password: pass,
-    });
-    if (response.data == "0") {
-      return 0;
-    } else {
-      return 1;
-    }
-  } catch (error) {
-    console.error(error.message);
-  }
-}
 
 export default function SignUpForm() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [allowed, setAllowed] = useState(true);
+  async function verify(usr, pass) {
+    try {
+      const response = await axios.post("/api/signup", {
+        name: usr,
+        password: pass,
+      });
+      if (response.data == "0") {
+        setAllowed(() => false);
+      } else {
+        setAllowed(() => true);
+        router.push("/");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
   return (
     <div className={styles.maindiv}>
       <div className={styles.formbody}>
@@ -55,15 +57,10 @@ export default function SignUpForm() {
           className={styles.button}
           onClick={async function () {
             const res = await verify(username, password);
-            if (res == 1) {
-              setAllowed(() => true);
-            } else {
-              setAllowed(() => false);
-            }
           }}>
           Sign Up
         </button>
-        {allowed === false && <span>you are not authorized to sign up</span>}
+        {allowed == false && <span>you are not authorized to sign up</span>}
       </div>
     </div>
   );
