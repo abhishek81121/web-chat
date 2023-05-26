@@ -10,14 +10,13 @@ export default async function handler(req, res) {
       result[0].password,
       function (err, result) {
         if (result == true) {
-          console.log("logged in");
+          return res.status(200).json({ status: "loggedin" });
         } else {
-          console.log("in");
+          return res.status(401).json({ status: "unauthorized" });
         }
       }
     );
     mongoose.connection.close();
-    return res.json({ 1: "hello" });
   } else {
     return res.json("Only Post Request Allowed");
   }

@@ -11,6 +11,7 @@ export default function SignUpForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [allowed, setAllowed] = useState(true);
+  const [existuser, setExistUser] = useState(false);
   async function verify(usr, pass) {
     try {
       const response = await axios.post("/api/signup", {
@@ -19,6 +20,8 @@ export default function SignUpForm() {
       });
       if (response.data == "0") {
         setAllowed(() => false);
+      } else if (response.data == "2") {
+        setExistUser(() => true);
       } else {
         setAllowed(() => true);
         router.push("/");
@@ -42,6 +45,10 @@ export default function SignUpForm() {
         </label>
         <input
           type="text"
+          onClick={() => {
+            setAllowed(() => true);
+            setExistUser(() => false);
+          }}
           onChange={function (e) {
             setUsername(e.target.value);
           }}
@@ -51,6 +58,10 @@ export default function SignUpForm() {
         </label>
         <input
           type="password"
+          onClick={() => {
+            setAllowed(() => true);
+            setExistUser(() => false);
+          }}
           onChange={(e) => setPassword(e.target.value)}
           className={styles.inputpass}></input>
         <button
@@ -61,6 +72,9 @@ export default function SignUpForm() {
           Sign Up
         </button>
         {allowed == false && <span>you are not authorized to sign up</span>}
+        {existuser == true && (
+          <span>username or password is already taken</span>
+        )}
       </div>
     </div>
   );
