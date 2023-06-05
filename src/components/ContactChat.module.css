@@ -3,6 +3,7 @@
   width: 70vw;
   position: fixed;
   margin-left: 30vw;
+  background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/04/High-Quality-Purple-Web-Background.jpg");
 }
 @media screen and (max-width: 769px) {
   .body {

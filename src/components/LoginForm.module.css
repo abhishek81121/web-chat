@@ -1,16 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap");
 
-button {
-  background-image: linear-gradient(45deg, #00dbde, #fc00ff, #00ecbc, #007adf);
+.button {
+  background-image: linear-gradient(45deg, #f77201, #e2d050, #45cdfc, #91ed91);
   background-size: 400%;
-  animation: bg-animation 80s infinite;
+
+  animation: bg-animation 140s infinite;
   text-align: center;
   box-sizing: inherit;
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: black;
   font-family: Phantomsans, sans-serif;
   font-size: 20px;
   line-height: 1em;
@@ -19,27 +20,27 @@ button {
   padding: 19px 24px;
 }
 
-button:active,
-button:hover {
+.button:active,
+.button:hover {
   outline: 0;
 }
-label {
-  color: #fff;
+.label {
+  color: black;
   font-size: 32px;
   font-family: "Noto Sans", sans-serif;
   box-sizing: inherit;
 }
-input {
+.input {
   border: 0;
   border-bottom: 1px solid #555;
   background: transparent;
   box-sizing: inherit;
   padding: 8px 0 5px 0;
   font-size: 32px;
-  color: #fff;
+  color: black;
 }
 
-input:hover {
+.input:hover {
   border: none;
   outline: none;
   border-bottom: 1px solid #e74c3c;
@@ -83,17 +84,18 @@ input:hover {
   height: 100vh;
   width: 100vw;
   display: flex;
-  background-image: linear-gradient(45deg, #00dbde, #fc00ff, #00ecbc, #007adf);
+  background-image: linear-gradient(45deg, #f77201, #e2d050, #45cdfc, #91ed91);
   background-size: 400%;
   justify-content: center;
   align-items: center;
-  animation: bg-animation 80s infinite;
+  animation: bg-animation 140s infinite;
 }
 .signup {
   position: absolute;
   right: 0px;
   bottom: 5px;
 }
+
 @keyframes bg-animation {
   0% {
     background-position: left;
@@ -106,16 +108,16 @@ input:hover {
   }
 }
 @media screen and (max-width: 768px) {
-  input {
+  .input {
     font-size: 1em;
     color: antiquewhite;
     font-weight: 900;
   }
-  label {
+  .label {
     font-size: 1.5em;
     font-weight: 900;
   }
-  button {
+  .button {
     font-size: 24px;
     width: 40%;
     margin-bottom: 10px;

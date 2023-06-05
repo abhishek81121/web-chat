@@ -52,7 +52,7 @@ export default function SignUpForm() {
           onChange={function (e) {
             setUsername(e.target.value);
           }}
-          className={styles.inputname}></input>
+          className={[styles.inputname, styles.input].join(" ")}></input>
         <label className={styles.label} htmlFor="password">
           Password
         </label>
@@ -63,7 +63,7 @@ export default function SignUpForm() {
             setExistUser(() => false);
           }}
           onChange={(e) => setPassword(e.target.value)}
-          className={styles.inputpass}></input>
+          className={[styles.inputpass, styles.input].join(" ")}></input>
         <button
           className={styles.button}
           onClick={async function () {

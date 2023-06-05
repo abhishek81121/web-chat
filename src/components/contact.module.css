@@ -1,14 +1,21 @@
 .body {
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 30vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.contactbody {
   height: fit-content;
   width: 30vw;
-  background-color: red;
+  background-color: whitesmoke;
 }
 .heading {
   margin-top: 0px;
   padding: 0px;
   margin-left: auto;
   height: fit-content;
-  color: #5eb68b;
+  color: #5800ff;
   font-family: "Trocchi", serif;
   font-size: 45px;
   font-weight: normal;
