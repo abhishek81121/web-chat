@@ -14,10 +14,9 @@ export default async function handler(req, res) {
       result[0].password,
       async function (err, result) {
         if (result == true) {
-          
           return res.status(200).json({ status: "loggedin" });
         } else {
-          return res.status(401).json({ status: "unauthorized" });
+          return res.status(200).json({ status: "unauthorized" });
         }
       }
     );

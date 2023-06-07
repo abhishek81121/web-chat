@@ -1,17 +1,19 @@
 "use client";
 import Image from "next/image";
-import styles from "./LoginForm.module.css";
+import styles from "./signup.module.css";
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-
+import Spinner from "./spinner";
 export default function SignUpForm() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [allowed, setAllowed] = useState(true);
   const [existuser, setExistUser] = useState(false);
+  const [buttonText, setbuttonText] = useState("Sign Up");
+  const [addClass, setaddClass] = useState(false);
   async function verify(usr, pass) {
     try {
       const response = await axios.post("/api/signup", {
@@ -19,8 +21,12 @@ export default function SignUpForm() {
         password: pass,
       });
       if (response.data == "0") {
+        setaddClass(() => false);
+        setbuttonText("Sign Up");
         setAllowed(() => false);
       } else if (response.data == "2") {
+        setaddClass(() => false);
+        setbuttonText("Sign Up");
         setExistUser(() => true);
       } else {
         setAllowed(() => true);
@@ -66,10 +72,14 @@ export default function SignUpForm() {
           className={[styles.inputpass, styles.input].join(" ")}></input>
         <button
           className={styles.button}
+          disabled={addClass}
           onClick={async function () {
-            const res = await verify(username, password);
+            setbuttonText(() => "");
+            setaddClass(() => true);
+            await verify(username, password);
           }}>
-          Sign Up
+          {buttonText}
+          {addClass && <Spinner></Spinner>}
         </button>
         {allowed == false && <span>you are not authorized to sign up</span>}
         {existuser == true && (
