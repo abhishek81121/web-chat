@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     mongoose.connection.close();
     bcrypt.compare(
       req.body.password,
-      result[0]?.password,
+      result[0].password,
       async function (err, result) {
         if (result == true) {
           return res.status(200).json({ status: "loggedin" });

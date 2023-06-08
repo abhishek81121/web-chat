@@ -18,6 +18,13 @@ export default async function handler(req, res) {
   );
 
   mongoose.connection.close;
-  setCookie("authtoken", refreshToken, { req, res });
+
+  setCookie("authtoken", refreshToken, {
+    req,
+    res,
+    secure: true,
+    httpOnly: true,
+    sameSite: "strict",
+  });
   return res.json({ accessToken: accessToken, refreshToken: refreshToken });
 }
