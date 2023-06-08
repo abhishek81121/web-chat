@@ -47,7 +47,7 @@ export default function LoginForm() {
       onKeyDown={async function (e) {
         if (e.key === "Enter") {
           setbuttonText(() => "");
-          setaddClass(() => true);
+          setSpinner(() => true);
           await verify(username, password);
         }
       }}>
