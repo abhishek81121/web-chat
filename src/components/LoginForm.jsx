@@ -41,7 +41,16 @@ export default function LoginForm() {
   }
 
   return (
-    <div className={styles.maindiv}>
+    <div
+      className={styles.maindiv}
+      tabIndex={0}
+      onKeyDown={async function (e) {
+        if (e.key === "Enter") {
+          setbuttonText(() => "");
+          setaddClass(() => true);
+          await verify(username, password);
+        }
+      }}>
       <div className={styles.formbody}>
         <Image
           height={50}
@@ -70,6 +79,7 @@ export default function LoginForm() {
           className={[styles.inputpass, styles.input].join(" ")}></input>
         <button
           className={styles.button}
+          disabled={spinner}
           onClick={() => {
             setSpinner(() => true);
             setbuttonText(() => "");

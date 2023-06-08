@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 export default async function handler(req, res) {
   if (req.method == "POST") {
     let user = req.body.name;
-    if (user.endsWith("@web_chat")) {
+    if (user.endsWith("@web_chat") && req.body.password) {
       bcrypt.hash(req.body.password, 10, async function (err, hash) {
         // Store hash in your password DB.
         await mongoose.connect(process.env.DB_URI);
@@ -23,6 +23,8 @@ export default async function handler(req, res) {
           return res.json("2");
         }
       });
+    } else if (!req.body.password) {
+      return res.json("3");
     } else {
       return res.json("0");
     }

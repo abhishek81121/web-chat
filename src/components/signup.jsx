@@ -14,20 +14,21 @@ export default function SignUpForm() {
   const [existuser, setExistUser] = useState(false);
   const [buttonText, setbuttonText] = useState("Sign Up");
   const [addClass, setaddClass] = useState(false);
+  const [emptypassword, setEmptyPassword] = useState(false);
   async function verify(usr, pass) {
     try {
       const response = await axios.post("/api/signup", {
         name: usr,
         password: pass,
       });
+      setaddClass(() => false);
+      setbuttonText("Sign Up");
       if (response.data == "0") {
-        setaddClass(() => false);
-        setbuttonText("Sign Up");
         setAllowed(() => false);
       } else if (response.data == "2") {
-        setaddClass(() => false);
-        setbuttonText("Sign Up");
         setExistUser(() => true);
+      } else if (response.data === "3") {
+        setEmptyPassword(() => true);
       } else {
         setAllowed(() => true);
         router.push("/");
@@ -38,7 +39,16 @@ export default function SignUpForm() {
   }
 
   return (
-    <div className={styles.maindiv}>
+    <div
+      className={styles.maindiv}
+      tabIndex={0}
+      onKeyDown={async function (e) {
+        if (e.key === "Enter") {
+          setbuttonText(() => "");
+          setaddClass(() => true);
+          await verify(username, password);
+        }
+      }}>
       <div className={styles.formbody}>
         <Image
           height={50}
@@ -67,6 +77,7 @@ export default function SignUpForm() {
           onClick={() => {
             setAllowed(() => true);
             setExistUser(() => false);
+            setEmptyPassword(() => false);
           }}
           onChange={(e) => setPassword(e.target.value)}
           className={[styles.inputpass, styles.input].join(" ")}></input>
@@ -85,6 +96,7 @@ export default function SignUpForm() {
         {existuser == true && (
           <span>username or password is already taken</span>
         )}
+        {emptypassword && <span>password cannot be empty</span>}
       </div>
     </div>
   );
