@@ -16,7 +16,7 @@ export default function LoginForm() {
   const router = useRouter();
   async function verify(usr, pass) {
     console.log(usr, pass);
-    await axios.get("api/authri/token");
+    await axios.get("api/authri/login");
     const response = await axios
       .post("/api/login", {
         name: usr,
