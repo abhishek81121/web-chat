@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const Cryptr = require("cryptr");
 export default async function handler(req, res) {
   const cryptr = new Cryptr(process.env.ENC_KEY);
-  if (req.method == "POST") {
+  if (req.method == "POST" && req.body.name && req.body.password) {
     await mongoose.connect(process.env.DB_URI);
     const result = await user_cred.find({ username: req.body.name });
     mongoose.connection.close();

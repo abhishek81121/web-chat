@@ -89,7 +89,7 @@ export default function LoginForm() {
           {spinner && <Spinner></Spinner>}
         </button>
         {wrongcred && (
-          <span>you are either not resgitered or wrong credentials</span>
+          <span>you are either not registered or wrong credentials</span>
         )}
         <span className={styles.signup}>
           <Link href="/signup">Dont have account?sign up here</Link>

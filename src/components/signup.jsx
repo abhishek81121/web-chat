@@ -15,6 +15,7 @@ export default function SignUpForm() {
   const [buttonText, setbuttonText] = useState("Sign Up");
   const [addClass, setaddClass] = useState(false);
   const [emptypassword, setEmptyPassword] = useState(false);
+  const [emptyusername, setEmptyusername] = useState(false);
   async function verify(usr, pass) {
     try {
       const response = await axios.post("/api/signup", {
@@ -29,6 +30,8 @@ export default function SignUpForm() {
         setExistUser(() => true);
       } else if (response.data === "3") {
         setEmptyPassword(() => true);
+      } else if (response.data === "4") {
+        setEmptyusername(() => true);
       } else {
         setAllowed(() => true);
         router.push("/");
@@ -64,6 +67,8 @@ export default function SignUpForm() {
           onClick={() => {
             setAllowed(() => true);
             setExistUser(() => false);
+            setEmptyusername(() => false);
+            setEmptyPassword(() => false);
           }}
           onChange={function (e) {
             setUsername(e.target.value);
@@ -78,6 +83,7 @@ export default function SignUpForm() {
             setAllowed(() => true);
             setExistUser(() => false);
             setEmptyPassword(() => false);
+            setEmptyusername(() => false);
           }}
           onChange={(e) => setPassword(e.target.value)}
           className={[styles.inputpass, styles.input].join(" ")}></input>
@@ -96,6 +102,7 @@ export default function SignUpForm() {
         {existuser == true && (
           <span>username or password is already taken</span>
         )}
+        {emptyusername && <span>username cannot be empty</span>}
         {emptypassword && <span>password cannot be empty</span>}
       </div>
     </div>
