@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.13",
+    "abort-controller": "^3.0.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "cookies-next": "^2.1.1",
@@ -19,9 +20,10 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.0",
     "next": "13.4.3",
+    "node-fetch": "^3.3.1",
     "randomstring": "^1.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "socket.io": "^4.6.1"
+    "realm-web": "^2.0.0"
   }
 }
